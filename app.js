@@ -118,3 +118,128 @@ var num = 35.36
 document.write("Value in Number:" + " " + num + "<br>");
 var str = num.toString().replace(".", "");
 document.write("Value in string:" + " " + str + "<br>");
+
+// 13. Write a program to take user input and store username in a variable. If the username contains any special symbol among [@ . , !],
+// prompt the user to enter a valid username. For character codes of [@ .
+// document.write("<h3>Question 13 </h3>");
+
+// WE CAN DO THIS METHOD
+// document.write("<h3>Question 13</h3>");
+
+// var userInputName = prompt("Enter your username");
+
+// if (userInputName.includes("@") || userInputName.includes(".") || userInputName.includes(",") || userInputName.includes("!")) {
+//     alert("Enter a valid username without special characters [@ . , !]");
+// } else {
+//     alert("Your username is valid: " + userInputName);
+// }
+
+// OR THIS METHOD AS WELL
+document.write("<h3>Question 13</h3>");
+
+var userInputName = prompt("Enter your username");
+
+for (var i = 0; i < userInputName.length; i++) {
+    var charCode = userInputName.charCodeAt(i);
+    if (charCode == 33 || charCode == 44 || charCode == 46 || charCode == 64) {
+        alert("Enter a valid username without special characters [@ . , !]");
+        break;
+    }
+}
+
+if (i == userInputName.length) {
+    alert("Your username is valid: " + userInputName);
+}
+
+// 14. You have an array A = [cake”, “apple pie”, “cookie”, “chips”, “patties”] Write a program to enable “search by user input” in an array.
+// After searching, prompt the user whether the givenitem is found in the list or not. Note: Perform case insensitive search.
+// Whether the user enters cookie, Cookie, COOKIE or coOkIE, program should inform about its availability. Example:
+
+document.write("<h3>Question 14 </h3>");
+
+// Define the array of items
+var items = ["cake", "apple pie", "cookie", "chips", "patties"];
+
+// Ask the user to enter an item to search
+var order = prompt("Welcome to our Bakery, What to want to Order?");
+
+// Convert the user input to lowercase for case-insensitive search
+order = order.toLowerCase();
+
+// Initialize a flag to keep track of whether the item is found or not
+var isFound = false;
+
+// Loop through the array and check if the item is present
+for (var i = 0; i < items.length; i++) {
+    // Convert the array element to lowercase for case-insensitive search
+    var items = items[i].toLowerCase();
+
+    // Check if the item matches the user's input
+    if (items === order) {
+        // If the item is found, set the flag to true and break out of the loop
+        isFound = true;
+        break;
+    }
+}
+
+// Display the result based on whether the item is found or not
+if (isFound) {
+    alert(order + " is found in the list.");
+} else {
+    alert(order + " is not found in the list.");
+}
+
+// 15. Write a program to take password as an input from user. The password must qualify these requirements:
+// a.It should contain alphabets and numbers
+// b.It should not start with a number
+// c.It must at least 6 characters long If the password does not meet above requirements, prompt the user to enter a valid password.
+//For character codes of a - z, A - Z & 0 - 9, refer to ASCII table at the end of this document.
+
+document.write("<h3>Question 15</h3>");
+
+// Prompt user to enter password
+var password = prompt("Enter a password: ");
+
+// Initialize variables to check if password meets requirements
+var hasLetter = false;
+var hasNumber = false;
+var startsWithLetter = false;
+
+// Check if password meets requirements
+for (var i = 0; i < password.length; i++) {
+    var charCode = password.charCodeAt(i);
+
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+        // Check if password has at least one letter
+        hasLetter = true;
+
+        if (i == 0) {
+            // Check if password starts with a letter
+            startsWithLetter = true;
+        }
+    } else if (charCode >= 48 && charCode <= 57) {
+        // Check if password has at least one number
+        hasNumber = true;
+    }
+}
+
+// Check if password meets all requirements
+if (hasLetter && hasNumber && startsWithLetter && password.length >= 6) {
+    alert("Password is valid!");
+} else {
+    alert("Password is invalid. Please enter a valid password.");
+}
+
+// 16. Write a program to convert the following string to an array using string split method.
+// var university = “University of Karachi”;
+// Display the elements of array in your browser.
+
+document.write("<h3>Question 16 </h3>");
+
+var university = "University of Karachi";
+
+var split = university.split(" ");
+
+for (var i = 0; i < split.length; i++) {
+    document.write(split[i] + "<br>");
+}

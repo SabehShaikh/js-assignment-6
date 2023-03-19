@@ -243,3 +243,31 @@ var split = university.split(" ");
 for (var i = 0; i < split.length; i++) {
     document.write(split[i] + "<br>");
 }
+
+// 17. Write a program to display the last character of a user input.
+
+document.write("<h3>Question 17 </h3>");
+
+var char = prompt("Enter string");
+document.write("User Input:" + " " + char + "<br>");
+
+var lastChar = char.charAt(char.length - 1);
+document.write("The last character of the string is: " + lastChar + "<br>");
+
+// 18. You have a string “The quick brown fox jumps over the lazy dog”.
+// Write a program to count number of occurrences of word “the” in given string.
+document.write("<h3>Question 18 </h3>");
+
+var txt = "The quick brown fox jumps over the lazy dog"
+document.write("TEXT:" + " " + txt + "<br>");
+
+var count = 0;
+var words = str.split(" ");
+
+for (let i = 0; i < words.length; i++) {
+    if (words[i].toLowerCase() === "the") {
+        count++;
+    }
+}
+
+document.write("The word 'the' appears " + count + " times in the string.");
